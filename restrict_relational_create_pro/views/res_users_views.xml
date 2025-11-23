@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <record id="view_users_form_restrict_relational" model="ir.ui.view">
+        <field name="name">res.users.relational.restrict.form</field>
+        <field name="model">res.users</field>
+        <field name="inherit_id" ref="base.view_users_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//notebook" position="inside">
+                <page string="Relational Restrictions" groups="base.group_no_one">
+
+                    <!-- Reset Section -->
+                    <group string="Reset Restrictions">
+                        <button name="action_clear_relational_restrictions"
+                                type="object"
+                                class="btn-secondary"
+                                string="Clear Restrictions"
+                                help="Reset all relational restrictions for this user."/>
+                    </group>
+
+                    <!-- Main Settings -->
+                    <group>
+
+                        <!-- GLOBAL BLOCK -->
+                        <group string="Global Restriction"
+                               invisible="restrict_relational_model_ids">
+
+                            <field name="restrict_relational_create_user"
+                                   widget="boolean_toggle"
+                                   string="Hide Create / Create &amp; Edit"
+                                   help="When enabled, this user cannot create or edit records directly from relational fields (Many2one / Many2many). Only existing records can be selected."
+                            />
+                        </group>
+
+                        <!-- MODEL-WISE BLOCK -->
+                        <group string="Model-wise Restriction"
+                               invisible="restrict_relational_create_user">
+
+                            <field name="restrict_relational_model_ids"
+                                   widget="many2many_tags"
+                                   string="Apply Restriction Only for These Models"
+                                   help="Select the models for which this user should be blocked from creating related records in relational fields."
+                            />
+                        </group>
+
+                    </group>
+
+                </page>
+
+            </xpath>
+
+        </field>
+    </record>
+</odoo>
