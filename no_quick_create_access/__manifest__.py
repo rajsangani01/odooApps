@@ -3,7 +3,7 @@
 {
     "name": "Quick Create Access",
     "version": "1.0",
-    "category": "Hidden/Tools",
+    "category": "Extra Tools",
     "sequence": 150,
     "summary": "Prevent users from creating or editing records directly from dropdowns",
     "author": "Dynamic TechnoLabs",
