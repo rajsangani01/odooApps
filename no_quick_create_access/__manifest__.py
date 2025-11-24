@@ -8,7 +8,7 @@
     "summary": "Prevent users from creating or editing records directly from dropdowns",
     "author": "Dynamic TechnoLabs",
     "license": "LGPL-3",
-    "price": 10.00,
+    "price": "10.00",
     "currency": "USD",
     "depends": ["base", "web"],
     "data": [
