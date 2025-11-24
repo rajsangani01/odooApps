@@ -19,6 +19,7 @@
             "no_quick_create_access/static/src/js/relational_utils_patch.js",
         ],
     },
+    'images': ['static/description/cover.png'],
     "installable": True,
     "description": """
             Restrict Create & Edit in Relational Fields
