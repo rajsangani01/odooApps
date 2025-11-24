@@ -2,7 +2,7 @@
 
 {
     "name": "Quick Create Access",
-    "version": "19.0.1.0.0",
+    "version": "1.0",
     "category": "Hidden/Tools",
     "sequence": 150,
     "summary": "Prevent users from creating or editing records directly from dropdowns",
@@ -19,10 +19,7 @@
             "no_quick_create_access/static/src/js/relational_utils_patch.js",
         ],
     },
-    "demo": [],
     "installable": True,
-    "application": False,
-    "auto_install": False,
     "description": """
             Restrict Create & Edit in Relational Fields
             ===========================================
