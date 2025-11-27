@@ -90,4 +90,29 @@ patch(Many2XAutocomplete.prototype, {
             (request.length > 0 || records?.length === 0)
         );
     },
+
+    get activeActions() {
+
+        const originalActions = this.props.activeActions || {};
+
+        if (this.is_admin_user) {
+            return originalActions;
+        }
+
+        if (this._isCreateBlocked()) {
+            return {
+                ...originalActions,
+                create: false,
+                createEdit: false,
+                quickCreate: false,
+            };
+        }
+
+        return {
+            ...originalActions,
+            create: true,
+            createEdit: true,
+            quickCreate: true,
+        };
+    },
 });
