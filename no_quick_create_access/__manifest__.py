@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 {
-    "name": "Quick Create Access",
+    "name": "Disable Quick Create & Edit – Relational Fields Access Control",
     "version": "1.0",
     "category": "Extra Tools",
     "sequence": 150,
