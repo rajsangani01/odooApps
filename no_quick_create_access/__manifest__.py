@@ -1,14 +1,14 @@
 # -*- coding: utf-8 -*-
 
 {
-    "name": "Disable Quick Create & Edit – Relational Fields Access Control",
+    "name": "Restrict Create & Edit in Relational Fields (Many2one / Many2many Access Control)",
     "version": "1.0",
     "category": "Extra Tools",
     "sequence": 150,
-    "summary": "Prevent users from creating or editing records directly from dropdowns",
+    "summary": "Block Create / Quick Create / Create & Edit on Many2one & Many2many fields per user or per model.",
     "author": "Dynamic TechnoLabs",
     "license": "LGPL-3",
-    "price": "10.00",
+    "price": "19.00",
     "currency": "USD",
     "depends": ["base", "web"],
     "data": [
@@ -19,7 +19,7 @@
             "no_quick_create_access/static/src/js/relational_utils_patch.js",
         ],
     },
-    'images': ['static/description/cover.png'],
+    'images': ['static/description/cover.gif'],
     "installable": True,
     "description": """
             Restrict Create & Edit in Relational Fields
