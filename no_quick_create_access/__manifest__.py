@@ -7,7 +7,7 @@
     "sequence": 150,
     "summary": "Block Create / Quick Create / Create & Edit on Many2one & Many2many fields per user or per model.",
     "author": "Dynamic TechnoLabs",
-    "license": "LGPL-3",
+    "license": "OPL-1",
     "price": "19.00",
     "currency": "USD",
     "depends": ["base", "web"],
@@ -44,6 +44,6 @@
             - Franchises or multi-company setups
             - Businesses that want only admins to create master data
             
-            100% Open Source - LGPL-3
+            This module is licensed under the Odoo Proprietary License v1.0 (OPL-1).
     """,
 }
