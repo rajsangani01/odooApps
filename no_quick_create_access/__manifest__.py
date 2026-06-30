@@ -6,7 +6,7 @@
     "category": "Extra Tools",
     "sequence": 150,
     "summary": "Block Create / Quick Create / Create & Edit on Many2one & Many2many fields per user or per model.",
-    "author": "Dynamic TechnoLabs",
+    "author": "Rajkumar Sangani",
     "license": "OPL-1",
     "price": "1",
     "currency": "USD",
