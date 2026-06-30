@@ -8,7 +8,7 @@
     "summary": "Block Create / Quick Create / Create & Edit on Many2one & Many2many fields per user or per model.",
     "author": "Dynamic TechnoLabs",
     "license": "OPL-1",
-    "price": "19.00",
+    "price": "1",
     "currency": "USD",
     "depends": ["base", "web"],
     "data": [
