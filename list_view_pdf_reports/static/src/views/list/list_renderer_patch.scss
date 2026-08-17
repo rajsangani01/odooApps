@@ -1,0 +1,117 @@
+/* Global list view table overrides to prevent popup clipping */
+.o_list_renderer {
+    overflow: visible !important;
+
+    .table-responsive {
+        overflow: visible !important;
+    }
+}
+
+.o_list_table {
+    overflow: visible !important;
+
+    td.o_list_pdf_reports_cell {
+        position: relative !important;
+        overflow: visible !important;
+    }
+
+    tr.o_data_row {
+        position: relative !important;
+
+        &:hover, &.o_pdf_row_active {
+            z-index: 1000 !important;
+        }
+    }
+}
+
+.o_list_pdf_reports_header {
+    width: 65px;
+    min-width: 55px;
+    user-select: none;
+}
+
+.o_list_pdf_reports_cell {
+    width: 65px;
+    vertical-align: middle;
+    position: relative !important;
+    overflow: visible !important;
+
+    .o_pdf_reports_dropdown_wrapper {
+        position: relative;
+        display: inline-block;
+    }
+
+    .o_pdf_reports_btn {
+        font-weight: 600;
+        color: var(--body-color, #212529);
+        transition: all 0.15s ease-in-out;
+        padding: 3px 8px !important;
+        border-radius: 4px;
+        cursor: pointer;
+        display: inline-flex;
+        align-items: center;
+
+        &:hover, &:focus {
+            opacity: 0.9;
+            text-decoration: none;
+            background-color: rgba(0, 0, 0, 0.06);
+        }
+
+        i.fa-file-pdf-o {
+            color: #dc3545;
+        }
+    }
+
+    .o_pdf_reports_menu_popup {
+        position: absolute !important;
+        top: calc(100% + 2px) !important;
+        right: 0 !important;
+        left: auto !important;
+        z-index: 99999 !important;
+        width: max-content !important;
+        min-width: 180px !important;
+        max-width: 320px !important;
+        padding: 0.4rem 0 !important;
+        background-color: #ffffff !important;
+        border: 1px solid rgba(0, 0, 0, 0.15) !important;
+        border-radius: 8px !important;
+        box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2), 0 2px 6px rgba(0, 0, 0, 0.1) !important;
+        display: block !important;
+        animation: fadeInPdfMenu 0.12s ease-out;
+
+        .o_pdf_report_item {
+            cursor: pointer !important;
+            display: flex;
+            align-items: center;
+            padding: 0.55rem 1rem;
+            font-size: 0.875rem;
+            font-weight: 400;
+            color: #212529 !important;
+            text-decoration: none !important;
+            white-space: nowrap;
+            user-select: none;
+            transition: background-color 0.12s ease;
+
+            &:hover {
+                background-color: #e9ecef !important;
+                color: #000000 !important;
+            }
+
+            i.fa-file-pdf-o {
+                color: #dc3545;
+                font-size: 1rem;
+            }
+        }
+    }
+}
+
+@keyframes fadeInPdfMenu {
+    from {
+        opacity: 0;
+        transform: translateY(-4px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}

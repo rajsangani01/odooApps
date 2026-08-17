@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- Inherit ir.actions.report Form View to add show_in_list_view -->
+    <record id="act_report_xml_view_inherit_list_pdf" model="ir.ui.view">
+        <field name="name">ir.actions.report.form.inherit.list.pdf</field>
+        <field name="model">ir.actions.report</field>
+        <field name="inherit_id" ref="base.act_report_xml_view"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='report_type']" position="after">
+                <field name="show_in_list_view"/>
+            </xpath>
+        </field>
+    </record>
+
+    <!-- Inherit ir.actions.report List View to add show_in_list_view -->
+    <record id="act_report_xml_view_tree_inherit_list_pdf" model="ir.ui.view">
+        <field name="name">ir.actions.report.list.inherit.list.pdf</field>
+        <field name="model">ir.actions.report</field>
+        <field name="inherit_id" ref="base.act_report_xml_view_tree"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='report_type']" position="after">
+                <field name="show_in_list_view"/>
+            </xpath>
+        </field>
+    </record>
+
+    <!-- Dedicated Action for List View PDF Reports Management -->
+    <record id="action_list_view_pdf_reports_config" model="ir.actions.act_window">
+        <field name="name">PDF Reports in List View</field>
+        <field name="res_model">ir.actions.report</field>
+        <field name="view_mode">list,form</field>
+        <field name="domain">[('report_type', 'in', ['qweb-pdf', 'qweb-text'])]</field>
+        <field name="context">{'search_default_show_in_list_view': 1}</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Manage PDF Reports in List View
+            </p>
+            <p>
+                Enable or disable specific PDF reports from appearing in the List View record row PDF dropdown menu across Odoo models.
+            </p>
+        </field>
+    </record>
+
+    <!-- Menu Item under Technical -> Reporting -->
+    <menuitem id="menu_list_view_pdf_reports_config"
+              name="PDF Reports in List View"
+              action="action_list_view_pdf_reports_config"
+              parent="base.next_id_6"
+              sequence="25"/>
+</odoo>

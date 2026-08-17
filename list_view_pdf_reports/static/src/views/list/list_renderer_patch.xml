@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates xml:space="preserve">
+
+    <t t-inherit="web.ListRenderer" t-inherit-mode="extension">
+        <xpath expr="//th[@t-if='hasOpenFormViewColumn']" position="before">
+            <th class="o_list_pdf_reports_header w-print-0 p-print-0 text-center" title="PDF Reports"/>
+        </xpath>
+    </t>
+
+    <t t-inherit="web.ListRenderer.RecordRow" t-inherit-mode="extension">
+        <xpath expr="//t[@t-if='hasOpenFormViewColumn']" position="before">
+            <td class="o_list_pdf_reports_cell w-print-0 p-print-0 text-center"
+                t-att-class="{ 'o_pdf_row_active': pdfReportsState.activeRecordId === record.id }"
+                t-on-click.stop="" tabindex="-1">
+                <t t-set="pdfReports" t-value="getRecordPdfReports(record)"/>
+                <!-- Show PDF Dropdown ONLY if at least one report is available -->
+                <t t-if="pdfReports and pdfReports.length">
+                    <div class="o_pdf_reports_dropdown_wrapper"
+                         t-on-mouseenter="() => this.onPdfDropdownMouseEnter(record.id)"
+                         t-on-mouseleave="() => this.onPdfDropdownMouseLeave()">
+                        <button type="button"
+                                class="btn btn-sm btn-link p-0 text-decoration-none o_pdf_reports_btn"
+                                title="PDF Reports" aria-label="PDF Reports" tabindex="-1"
+                                t-on-click.stop.prevent="() => this.togglePdfDropdown(record.id)">
+                            <i class="fa fa-file-pdf-o text-danger me-1"/>
+                            <span class="d-none d-xl-inline fw-semibold">PDF</span>
+                            <i class="fa fa-caret-down ms-1 text-muted small"/>
+                        </button>
+                        <div t-if="pdfReportsState.activeRecordId === record.id"
+                             class="o_pdf_reports_menu_popup">
+                            <t t-foreach="pdfReports" t-as="report" t-key="report.id">
+                                <div class="o_pdf_report_item dropdown-item d-flex align-items-center cursor-pointer"
+                                     t-on-click.stop.prevent="() => this.onSelectPdfReport(report, record)">
+                                    <i class="fa fa-file-pdf-o text-danger me-2"/>
+                                    <span class="text-truncate" t-esc="report.name"/>
+                                </div>
+                            </t>
+                        </div>
+                    </div>
+                </t>
+            </td>
+        </xpath>
+    </t>
+
+</templates>
